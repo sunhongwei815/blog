@@ -6,7 +6,7 @@ sever:
 spring:
   datasource:
     name: blog #数据库名
-    url: jdbc:mysql://localhost:3306/blog #url
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC #url
     username: root  #用户名
     password: shw19950815  #密码
     driver-class-name: com.mysql.cj.jdbc.Driver  #数据root库链接驱动
