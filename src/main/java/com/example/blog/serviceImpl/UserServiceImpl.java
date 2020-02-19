@@ -20,16 +20,95 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-
+    /**
+     * 登录验证
+     * @param name
+     * @param password
+     * @return
+     */
     @Override
     public UserBean loginIn(String name, String password){
-        return userMapper.getInfo(name,password);
+        try{
+            UserBean userBean=userMapper.getInfo(name,password);
+            return userBean;
+        }catch (Exception e) {
+            throw e;
+        }
     }
 
+
+    /**
+     * 根据ID查询用户信息
+     * @param id
+     * @return
+     */
     @Override
-    public List<UserBean> getUserList(){
+    public UserBean queryUserById(String id){
         try {
-            List<UserBean> users = userMapper.getUserList();
+            UserBean userBean=userMapper.selectUserById(id);
+            return userBean;
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+
+    /**
+     * 新增用户
+     * @param userBean
+     * @return
+     */
+    @Override
+    public int addUser(UserBean userBean){
+        try{
+            int aFlag=userMapper.insertUser(userBean);
+            return aFlag;
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    /**
+     * 根据ID删除用户
+     * @param id
+     * @return
+     */
+     @Override
+     public int dropUser(String id){
+         try{
+             int dFlag=userMapper.deleteUser(id);
+             return dFlag;
+         }catch (Exception e){
+             throw e;
+         }
+     }
+
+
+
+    /**
+     * 修改用户信息
+     * remark：实际上还是根据用户ID修改用户信息
+     * @param userBean
+     * @return
+     */
+    @Override
+    public int modifyUser(UserBean userBean){
+        try{
+            int mFlag=userMapper.updateUser(userBean);
+            return mFlag;
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    /**
+     * 查询所有用户信息
+     * @return
+     */
+    @Override
+    public List<UserBean> queryAllUser(){
+        try {
+            List<UserBean> users = userMapper.getAllUser();
             return users;
         }catch (Exception e){
             throw e;

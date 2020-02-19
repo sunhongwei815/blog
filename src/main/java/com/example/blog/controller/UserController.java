@@ -23,6 +23,6 @@ public class UserController {
     @RequestMapping("/getuserlist")
     public List<UserBean> getUserList()
     {
-        return userService.getUserList();
+        return userService.queryAllUser();
     }
 }
