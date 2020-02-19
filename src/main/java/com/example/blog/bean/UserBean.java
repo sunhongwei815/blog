@@ -21,7 +21,6 @@ public class UserBean {
         this.role = role;
     }
 
-
     public int getId() {
         return id;
     }
