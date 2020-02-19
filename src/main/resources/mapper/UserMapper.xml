@@ -38,7 +38,7 @@
     </update>
     
     <!--查询所有用户信息，返回一个List<Bean>-->
-    <select id="getUserList" parameterType="String" resultType="com.example.blog.bean.UserBean">
+    <select id="getAllUser" parameterType="String" resultType="com.example.blog.bean.UserBean">
         SELECT * FROM user
         ORDER BY id DESC
     </select>
