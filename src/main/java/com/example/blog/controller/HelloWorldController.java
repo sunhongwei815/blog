@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-@RestController
+@Controller
 public class HelloWorldController {
     @RequestMapping("/index")
     public String index() {

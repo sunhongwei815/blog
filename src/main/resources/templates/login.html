@@ -3,13 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <style type="text/css">
+        h1{
+            font-size: 24px;
+            color: #eb7350;
+            text-align: center;
+            font-family: "Times New Roman";
+            font-weight:bold;
+        }
+        button{
+            color: blue;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-    <form role="form" action = "/loginIn" method="post">
-        账号：<input type="text" id="name" name = "name"> <br>
-        密码：<input type="password" id = "password" name = "password"> <br>
-        <input type="submit" id = "login" value = "login">
-    </form>
-
+<body background="../image/a1.png" style=" background-repeat:no-repeat ;
+      background-size:100% 100%;
+      background-attachment: fixed;">
+<div>
+<h1>
+    <div id="loginid">
+        <div class="layui-anim layui-anim-fadein">
+            <h3>登录</h3>
+            <hr>
+            <form role="form" action = "/loginIn" method="post">
+            账号：<input type="text" id="name" name = "name" placeholder="请输入账号"> <br>
+            密码：<input type="password" id = "password" name = "password" placeholder="请输入密码"> <br>
+                <button type="submit" id = "login" value = "sign in" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger">sign in</button>
+        </form>
+        </div>
+    </div>
+</h1>
+</div>
 </body>
 </html>

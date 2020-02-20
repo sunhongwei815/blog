@@ -29,7 +29,7 @@ public class LoginController {
     public String login(String name,String password){
         UserBean userBean = userService.loginIn(name,password);
         if(userBean!=null){
-            return "success";
+            return "index";
         }else {
             return "error";
         }
