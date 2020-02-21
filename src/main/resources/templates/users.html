@@ -88,8 +88,7 @@
                 $.ajax({
                     url:"/addUser", //请求url
                     data: param,    //请求参数
-                    async: true,    //是否异步
-                    success: function f(result) {
+                    success: function(result) {
                         window.confirm(result.msg); //新增用户成功提示框
                         location.href = "users";    //重新加载界面，同步数据库信息
                     }

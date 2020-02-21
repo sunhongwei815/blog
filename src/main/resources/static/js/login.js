@@ -36,6 +36,7 @@ function reg() {
 
 
 //登录
+/*
 function login(){
     var name = document.getElementById("name").value;
     var password = document.getElementById("password").value;
@@ -62,4 +63,7 @@ function login(){
         }
     });
 }
+*/
+
+
 

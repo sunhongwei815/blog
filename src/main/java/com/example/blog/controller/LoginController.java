@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author:Sun Hongwei
  * @2020/2/18 下午9:17
@@ -26,16 +29,17 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value="/loginIn", method = RequestMethod.POST)
+    @RequestMapping("/loginIn")
     @ResponseBody
-    public String login(String name, String password){
-        int result;
+    public Map loginIn(String name, String password){
+        Map<String,Object> map = new HashMap<String,Object>();
         UserBean userBean=userService.loginIn(name,password);
         if(userBean==null){
-            return "fail";
+            map.put("msg","登录失败");
         }else{
-            return "success";
+            map.put("msg","登录成功");
         }
+        return map;
     }
 
 
