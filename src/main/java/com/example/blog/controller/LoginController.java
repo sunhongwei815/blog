@@ -29,16 +29,23 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping(value="/demo")
+    public String show2(){
+        return "demo";
+    }
+
     @RequestMapping("/loginIn")
     @ResponseBody
-    public Map loginIn(String name, String password){
+    public Object loginIn(String name, String password){
         Map<String,String> map = new HashMap<String,String>();
         UserBean userBean=userService.loginIn(name,password);
-        if(userBean==null){
-            map.put("msg","登录失败");
+       // System.out.println(userBean.getName()+" : "+userBean.getPassword());
+        if(userBean == null){
+            map.put("msg","fail");
         }else{
-            map.put("msg","登录成功");
+            map.put("msg","success");
         }
+        System.out.println(map.get("msg"));
         return map;
     }
 

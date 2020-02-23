@@ -55,7 +55,7 @@
         <div class="layui-anim layui-anim-fadein">
             <h3>登录</h3>
 
-            <form role="form" id="input" class="layui-form layui-form-pane" action = "/loginIn" method="post">
+            <form role="form" id="input" class="layui-form layui-form-pane"  method="post">
                 <div class="layui-form-item">
                     <label class="layui-form-label">账号</label>
                     <div class="layui-input-block">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div>
-                    <button id="login_button" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-warm">sign in</button>
+                    <button type="submit" id="login_button" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-warm">sign in</button>
                 </div>
             </form>
         </div>
@@ -90,6 +90,7 @@
         if(isBlank(name) || isBlank(password)){
             window.confirm("请完善信息");
         }else {
+            window.confirm(name+" : "+password);
             var param = {
                 "name": name,
                 "password": password
@@ -97,17 +98,16 @@
 
             $.ajax( {
                 url:"/loginIn", //请求url
-                data: param,    //请求参数
+                data: JSON.stringify(param),    //请求参数
                 type: "POST",
                 contentType: "application/json",
+                dataType : "json",
                 success: function(result) {
-                    var msg=result.msg;
-                    console.log(msg);
-                    if (msg=="登录成功") {
-                        location.href = "users";    //重新加载界面，
+                    if (result=="success") {
+                        location.href = "/users";    //重新加载界面，
                     }else{
-                        window.confirm(msg); //新增用户成功提示框
-                        layer.alert("账号或密码不正确");
+                        location.href = "/users";
+                        //layer.alert("账号或密码不正确");
                     }
                 }
             });
