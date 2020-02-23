@@ -32,7 +32,7 @@ public class LoginController {
     @RequestMapping("/loginIn")
     @ResponseBody
     public Map loginIn(String name, String password){
-        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,String> map = new HashMap<String,String>();
         UserBean userBean=userService.loginIn(name,password);
         if(userBean==null){
             map.put("msg","登录失败");

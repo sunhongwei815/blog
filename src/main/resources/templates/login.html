@@ -17,11 +17,14 @@
     <link rel="stylesheet" href="../layui/css/layui.css">
     <script src="../js/login.js"></script>
     <style type="text/css">
-        #loginpage{
-            font-size: 44px;
+        h3{
+            position: fixed;
+            top: 50px;
+            left:640px;
+            font-size: 60px;
             color: #eb7350;
             text-align: center;
-            font-family: "KaiTi";
+            font-family: "STKaiti";
             font-weight:bold;
         }
         #input{
@@ -32,13 +35,14 @@
             width:600px;
             height:150px;
             font-size: 24px;
+            font-family:"STKaiti";
         }
-        #login{
+        #login_button{
             position: fixed;
             top:400px;
             left:600px;
             width:200px;
-            color: brown;
+            color: black;
             font-size: 22px;
             font-family: "Times New Roman";
         }
@@ -50,7 +54,7 @@
     <div id="loginpage">
         <div class="layui-anim layui-anim-fadein">
             <h3>登录</h3>
-            <hr>
+
             <form role="form" id="input" class="layui-form layui-form-pane" action = "/loginIn" method="post">
                 <div class="layui-form-item">
                     <label class="layui-form-label">账号</label>
@@ -60,12 +64,12 @@
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码</label>
-                    <div class="layui-input-inline">
+                    <div class="layui-input-block">
                         <input type="password" id="password" name="password" placeholder="请输入密码" class="layui-input"> <br>
                     </div>
                 </div>
                 <div>
-                    <button id="login_button" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-danger">sign in</button>
+                    <button id="login_button" class="layui-btn layui-btn-sm layui-btn-radius layui-btn-warm">sign in</button>
                 </div>
             </form>
         </div>
@@ -100,7 +104,7 @@
                     var msg=result.msg;
                     console.log(msg);
                     if (msg=="登录成功") {
-                        location.href = "users";    //重新加载界面，同步数据库信息
+                        location.href = "users";    //重新加载界面，
                     }else{
                         window.confirm(msg); //新增用户成功提示框
                         layer.alert("账号或密码不正确");

@@ -19,3 +19,13 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml  #配置映射文件
   type-aliases-package: com.example.blog.bean #配置实体类
+
+
+redis:
+  host: localhost
+  port: 6379
+  max_wait: 30000   #连接池最大阻塞等待时间
+  max_active: 100   #连接池的最大连接数
+  max_ide: 20       #连接池中的最大空闲连接
+  min_ide: 0        #连接池中的最小空闲连接
+  time_out: 3000    #连接超时
